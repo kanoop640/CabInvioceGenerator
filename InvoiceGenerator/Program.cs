@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InvoiceGenerator
 {
@@ -6,8 +7,13 @@ namespace InvoiceGenerator
     {
         static void Main(string[] args)
         {
-            InvoiceGenrator invoice = new InvoiceGenrator();
-            Console.WriteLine(invoice.calculateFare(0,1));
+            //InvoiceGenrator invoice = new InvoiceGenrator();
+            //Console.WriteLine(invoice.calculateFare(0,1));
+            InvoiceSummary invoice = new InvoiceSummary();
+
+           // invoice.AddRide("Anoop",); 
+           
+
         }
     }
 }

@@ -34,9 +34,9 @@ namespace InvoiceGenerator
         /// <param name="distance"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public double calculateFare(double distance, double time)
+        public double calculateFare(Ride ride)
         {
-            double totalFare = distance * MINIMUM_COST_PER_KM+time*COST_PER_MINUTE;
+            double totalFare = ride.distance * MINIMUM_COST_PER_KM+ride.time*COST_PER_MINUTE;
             return Math.Max(totalFare,MINIMUM_FARE);
         }
         public double calculate_Multi_Ride_Fare(List<Ride> rides)
@@ -44,11 +44,12 @@ namespace InvoiceGenerator
             double totalFaire = 0;
             foreach (Ride ride in rides)
             {
-                totalFaire = this.calculateFare(ride.distance, ride.time);
+                totalFaire = this.calculateFare(ride);
             }
 
             return totalFaire;
 
         }
+       
     }
 }
