@@ -15,7 +15,7 @@ namespace InvoiceGenerator
 
         public double Total_Fare(List<Ride> rides)
         {
-            double totalFare = invoiceGenrator.calculate_Multi_Ride_Fare(rides);
+            double totalFare = invoiceGenrator.calculate_Multi_Ride_Fare("normal",rides);
             return totalFare;
         }
 

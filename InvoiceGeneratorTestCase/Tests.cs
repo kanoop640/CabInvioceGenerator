@@ -16,7 +16,7 @@ namespace InvoiceGeneratorTestCase
         [Test]
         public void Fare_For_Single_Ride()
         {
-            double fare = invoiceService.calculateFare(new Ride(10,5));
+            double fare = invoiceService.calculateFare("normal",new Ride(10,5));
             Assert.AreEqual(105, fare);
         }
         /// <summary>
@@ -27,7 +27,7 @@ namespace InvoiceGeneratorTestCase
         public void Fare_For_Multi_Ride()
         {
             List<Ride> rides = new List<Ride> {new Ride(10,5),new Ride(9,15) };
-            double fare = invoiceService.calculate_Multi_Ride_Fare(rides);
+            double fare = invoiceService.calculate_Multi_Ride_Fare("normal",rides);
             Assert.AreEqual(fare, 105);
         }
         /// <summary>
@@ -69,6 +69,26 @@ namespace InvoiceGeneratorTestCase
             rides.Add(new Ride(6, 2));
             rides.Add(new Ride(20, 9));
             Assert.AreEqual(invoiceSummary.Average_Fare_Per_Ride(rides), 41);
+        }
+        /// <summary>
+        /// Test Case Step 4
+        /// This test case for getting rides form given userId
+        /// form ride repo
+        /// </summary>
+        [Test]
+        public void Given_UserId_Summar_Should_Return_Rides()
+        {
+            List<Ride> rides = new List<Ride> { 
+                new Ride(4,2),
+                new Ride(8,20),
+                new Ride(15,25)};
+            invoiceService.AddRides("Anoop", rides);
+            Assert.AreEqual(invoiceService.GetRides("Anoop"),rides.Count);
+        }
+        [Test]
+        public void Fare_For_Premium_Single_Ride()
+        {
+            Assert.AreEqual(invoiceService.calculateFare("premium", new Ride(10, 5)), 160);
         }
     }
 }
