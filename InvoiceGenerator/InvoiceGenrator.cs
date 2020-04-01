@@ -27,8 +27,17 @@ namespace InvoiceGenerator
         /// Minimum Fare for ride
         /// </summary>
         private static readonly double MINIMUM_FARE = 5;
+        /// <summary>
+        /// This is Premium ride cost for per minute
+        /// </summary>
         private static readonly int PREMIUM_RIDE_COST_PER_MINUTE = 2;
+        /// <summary>
+        /// Minimum Cost for premium ride
+        /// </summary>
         private static readonly double PREMIUM_RIDE_MINIMUM_COST = 20;
+        /// <summary>
+        /// primium  ride cost per kilometer 
+        /// </summary>
         private static readonly double PREMIUM_RIDE_PER_KM_COST = 15;
 
        RideRepository rideRepository = new RideRepository();
@@ -45,11 +54,17 @@ namespace InvoiceGenerator
             if (typeOfRide == "premium")
             {
                totalFare = ride.distance * PREMIUM_RIDE_PER_KM_COST + ride.time * PREMIUM_RIDE_COST_PER_MINUTE;
-                return Math.Max(totalFare, PREMIUM_RIDE_PER_KM_COST);
+                return Math.Max(totalFare, PREMIUM_RIDE_MINIMUM_COST);
             }
             totalFare = ride.distance * MINIMUM_COST_PER_KM+ride.time*COST_PER_MINUTE;
             return Math.Max(totalFare,MINIMUM_FARE);
         }
+        /// <summary>
+        /// Multi Ride calculation method
+        /// </summary>
+        /// <param name="typeOfRide"></param>
+        /// <param name="rides"></param>
+        /// <returns></returns>
         public double calculate_Multi_Ride_Fare(string  typeOfRide, List<Ride> rides)
         {
             double totalFaire = 0;

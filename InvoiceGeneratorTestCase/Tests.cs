@@ -1,13 +1,27 @@
-using InvoiceGenerator;
-using NUnit.Framework;
-using System.Collections.Generic;
-
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Tests.cs" company="Bridgelabz">
+//   Copyright © 2020 Company="BridgeLabz"
+// </copyright>
+// <creator name="Anoop kumar"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace InvoiceGeneratorTestCase
 {
+    using InvoiceGenerator;
+    using NUnit.Framework;
+    using System.Collections.Generic;
     public class Tests
     {
+        /// <summary>
+        /// InvoiceGenerator class object
+        /// </summary>
         InvoiceGenrator invoiceService = new InvoiceGenrator();
+        /// <summary>
+        /// InvoiceSummary class object
+        /// </summary>
         InvoiceSummary invoiceSummary = new InvoiceSummary();
+        /// <summary>
+        /// List for storing ride information
+        /// </summary>
         List<Ride> rides = new List<Ride>();
         /// <summary>
         /// Test Case for Single Ride 
@@ -85,6 +99,9 @@ namespace InvoiceGeneratorTestCase
             invoiceService.AddRides("Anoop", rides);
             Assert.AreEqual(invoiceService.GetRides("Anoop"),rides.Count);
         }
+        /// <summary>
+        /// cost for single premium ride cost
+        /// </summary>
         [Test]
         public void Fare_For_Premium_Single_Ride()
         {

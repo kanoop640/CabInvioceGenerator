@@ -1,9 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="InvoiceSummary.cs" company="Bridgelabz">
+//   Copyright © 2020 Company="BridgeLabz"
+// </copyright>
+// <creator name="Anoop kumar"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace InvoiceGenerator
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     public class InvoiceSummary
     {
         InvoiceGenrator invoiceGenrator = new InvoiceGenrator();
